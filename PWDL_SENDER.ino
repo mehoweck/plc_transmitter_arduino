@@ -20,7 +20,7 @@
 #define PARAM3_LENGTH 3
 //#define FRAME_LENGTH 16
 
-#define ADDRESS_BROADCAST 0b1011 // match any of the receiver addresses
+#define ADDRESS_BROADCAST 0b1111 // matches any of the receiver addresses
 
 #define readButtonInterval 50000  //25ms
 #define minCommandInterval 300000 //600ms 
@@ -101,8 +101,8 @@ void loop() {
 
       switch(commandCode) {
         case CMD_LED_OFF : sendCommand(ADDRESS_BROADCAST, CMD_LED_OFF, 0, 0, 0); break;
-        case CMD_LED_ON  : sendCommand(ADDRESS_BROADCAST, CMD_LED_ON, 5, 2, 1); break; 
-        case CMD_LED_UP  : sendCommand(ADDRESS_BROADCAST, CMD_LED_UP,   2, 7, 2); break;
+        case CMD_LED_ON  : sendCommand(2, CMD_LED_ON, 5, 2, 1); break; 
+        case CMD_LED_UP  : sendCommand(3, CMD_LED_UP, 2, 7, 2); break;
         case CMD_LED_DOWN: sendCommand(ADDRESS_BROADCAST, CMD_LED_DOWN, 0, 0, 0); break;
         case CMD_LED_AUTO: sendCommand(ADDRESS_BROADCAST, CMD_LED_AUTO, 0, 0, 0); break;
         case CMD_LED_RGB : sendCommand(ADDRESS_BROADCAST, CMD_LED_RGB,  0, 0, 0); break;     
